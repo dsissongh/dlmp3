@@ -2,6 +2,12 @@ import subprocess
 from subprocess import call
 import os
 
+class dlmp3(object):
+    def index(self):
+        return "Hello World!"
+    index.exposed = True
+    
+
 def checkconvert(executable):
 	try:
 		devnull = open(os.devnull)
@@ -21,7 +27,7 @@ def getmedia(executable, url):
 	param3 = "--audio-format"
 	param4 = "mp3"
 	param5 = "--output"
-	param6 = '"./mp3/%(title)s.%(ext)s"'
+	param6 = '"../mp3/%(title)s.%(ext)s"'
 	param7 = "-k"
 	call([executable, param1, param2, param3, param4, param5, param6, param7])
 	return
