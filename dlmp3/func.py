@@ -1,14 +1,21 @@
+import cherrypy
 import subprocess
 from subprocess import call
 import os
 
 class dlmp3(object):
-    def index(self):
-        return "Hello World!"
-    index.exposed = True
-    
+
+	@cherrypy.expose
+	def index(self):
+		return "Hello World!"
+
+	@cherrypy.expose
+	def get(self):
+		return "get method"
+
 
 def checkconvert(executable):
+	''' see if "executable" is installed '''
 	try:
 		devnull = open(os.devnull)
 		subprocess.Popen([executable], stdout=devnull, stderr=devnull).communicate()
