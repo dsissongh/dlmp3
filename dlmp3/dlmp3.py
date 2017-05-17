@@ -6,15 +6,12 @@ from func import getmedia
 
 
 
-
-cherrypy.quickstart(dlmp3())
-
-
 isinstalled = checkconvert('ffmpeg')
 if "error" in isinstalled:
 	print("Need to install ffmpeg")
 	exit()
 
+cherrypy.quickstart(dlmp3())
 
 url = "https://www.youtube.com/watch?v=bamLHzEPm6U"
 executable = 'youtube-dl'
