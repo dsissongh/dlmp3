@@ -1,13 +1,15 @@
 import cherrypy
+import os
 
 from func import dlmp3
 from func import checkconvert
 from func import getmedia
 
 
+#print(os.path.(__file__))
 
-isinstalled = checkconvert('ffmpeg')
-if "error" in isinstalled:
+isinstalled = checkconvert('ffmpeg.exe')
+if not isinstalled:
 	print("Need to install ffmpeg")
 	exit()
 

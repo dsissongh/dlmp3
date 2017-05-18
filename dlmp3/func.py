@@ -13,8 +13,15 @@ class dlmp3(object):
 	def get(self):
 		return "get method"
 
-
 def checkconvert(executable):
+	path2file = os.path.dirname(__file__) + "\\" + executable
+	print(path2file)
+	if os.path.isfile(path2file):
+		return True
+	else:
+		return False
+
+def checkconvert_dep(executable):
 	''' see if "executable" is installed '''
 	try:
 		devnull = open(os.devnull)
